@@ -1,0 +1,140 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>Calculate</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="calculator.js"></script>
+    <style type="text/css" media="screen">
+
+        body {
+            padding-top: 80px;
+        }
+        h1 {
+            background-color: grey;
+        }
+        .button1 {
+            background-color: #ff8243; /* Green */
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: 2px solid #ffc87c;;
+        }
+        .button2 {
+            background-color: #ff8243; /* Green */
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: 2px solid #ffc87c;;
+            width: 100px;
+        }
+        .button1:hover {
+            background-color: #ff8243;
+            color: white;
+        }
+        .button2:hover {
+            background-color: #ff8243;
+            color: white;
+        }
+        .second {
+            border-style: solid;
+            border-width: 5px;
+            border-color: grey;
+            margin: auto;
+            width: 50%;
+            background-color: #C0C0C0;
+
+    </style>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <body style="background-color:orange">
+  <div class="first">
+  </div>
+
+  <div class="second">
+    <div align="center">
+        <div class="head">
+            <h1 style="width:100%; height:80px; color:white; background-color:#ffc87c;">Calculator</h1>
+        </div>
+        <input type="text" placeholder="Number" id="value1" max="20" style="width: 100%; height:50px;" padding="255px" required>
+        <input type="text" placeholder="Number" id="value2" max="20" style="width: 100%; height:50px; display:none" padding="255px" required>
+        <input type="text" placeholder="Number" id="operand" max="20" style="width: 100%; height:50px; display:none" padding="255px" required>
+        <input type="text" placeholder="Number" id="finalTotal" max="20" style="width: 100%; height:50px; display:none" padding="255px" required>
+        <input type="text" placeholder="Number" id="currentElement" value="value1" max="20" style="width: 100%; height:50px; display:none" padding="255px" required>
+        <br style="width:30%; height:50px;">
+        <div id="value1Display">
+            <table>
+                        <tr>
+                            <td>
+                                <button class="button button1" value="1" onclick="numberClick('value1','1')">1</button>
+                                <button class="button button1" value="2" onclick="numberClick('value1','2')">2</button>
+                                <button class="button button1" value="3" onclick="numberClick('value1','3')">3</button>
+                                <button class="button button1" value="add" id='+' onclick="operand('+')">+</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="button button1" value="4" onclick="numberClick('value1','4')">4</button>
+                                <button class="button button1" value="5" onclick="numberClick('value1','5')">5</button>
+                                <button class="button button1" value="6" onclick="numberClick('value1','6')">6</button>
+                                <button class="button button1" value="subtract" id='-' onclick="operand('-')">-</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="button button1" value="7" onclick="numberClick('value1','7')">7</button>
+                                <button class="button button1" value="8" onclick="numberClick('value1','8')">8</button>
+                                <button class="button button1" value="9" onclick="numberClick('value1','9')">9</button>
+                                <button class="button button1" value="multiply"  id='*' onclick="operand('*')">*</button>
+                                <button class="button button2"  style="visibility: hidden;"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="button button1" style="visibility: hidden;">0</button>
+                                <button class="button button1" value="0" onclick="numberClick('value1','0')">0</button>
+                                <button class="button button1" style="visibility: hidden;">0</button>
+                                <button class="button button1" value="divide" id='/' onclick="operand('/')">/</button>
+                                <button class="button button2" onclick="clearFunction('value1')">Clear <i class="fa fa-chevron-left" style="font-size:15px;color:yellow"></i></button>
+                                <button class="button button2" onclick="cancelFunction()">Cancel <i class="fa fa-close" style="font-size:15px;color:red"></i></button>
+                                <button class="button button2"  onclick="calculations()">Enter <i class="fa fa-circle-o" style="font-size:15px;color:green"></i></button>
+                            </td>
+                        </tr>
+        </table>
+        </div>
+
+            <div class="head">
+                <h1 style="width:100%; height:80px; color:white;"></h1>
+            </div>
+    </div>
+
+  </div>
+  </html>
